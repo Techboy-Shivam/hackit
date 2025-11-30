@@ -1,48 +1,4 @@
-<!-- <?php
-require 'config.php';
-$msg = "";
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = trim($_POST['username'] ?? '');
-    $password = $_POST['password'] ?? '';
-
-    if ($username && $password) {
-        $hash = md5($password);
-        $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ? AND password_hash = ?");
-        $stmt->execute([$username, $hash]);
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if ($user) {
-            $_SESSION['user_id']  = $user['id'];
-            $_SESSION['role']     = $user['role'];
-            $_SESSION['username'] = $user['username'];
-
-            header("Location: dashboard.php");
-            exit;
-        } else {
-            $msg = "Invalid credentials.";
-        }
-    } else {
-        $msg = "Enter username and password.";
-    }
-}
-?>
-<!DOCTYPE html>
-<html>
-<head><title>Login</title></head>
-<body>
-<h2>Login</h2>
-<p style="color:red;"><?php echo htmlspecialchars($msg); ?></p>
-<form method="POST">
-  <label>Username</label><br>
-  <input type="text" name="username" required><br>
-  <label>Password</label><br>
-  <input type="password" name="password" required><br><br>
-  <button type="submit">Login</button>
-</form>
-<a href="user_register.php">New user? Register</a>
-</body>
-</html> -->
 <?php
 require 'config.php';
 $msg = "";
